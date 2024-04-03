@@ -56,4 +56,44 @@ UserRoutes.route("/")
     }
   });
 
+//   Select
+UserRoutes.route("/:id")
+  .get(async (req, res) => {
+    const userID = req.params.id;
+    try {
+      // const result = await Article.findOne({ _id: articleId });
+      const result = await User.findById({ _id: userID });
+
+      res.send(result);
+    } catch (e) {
+      res.status(404).send("Doesn't exist");
+    }
+  })
+  .put(async (req, res) => {
+    // replaceOne
+    try {
+      const result = await User.replaceOne(
+        { _id: req.params.id },
+        {
+          name: {
+            firstname: req.body.name.firstname,
+            lastname: req.body.name.lastname,
+          },
+          address: {
+            street: req.body.address.street,
+            city: req.body.address.city,
+            zip: req.body.address.zip,
+            loction: req.body.address.loction,
+          },
+        }
+      );
+      res.send(result);
+    } catch (error) {
+      res.send(error);
+    }
+  })
+  .patch(async (req, res) => {
+    const result = await User.updateOne;
+  });
+
 export default UserRoutes;
