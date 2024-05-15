@@ -21,7 +21,7 @@ const WorkoutDetails = ({ workout }) => {
   };
 
   return (
-    <div key={workout._id} className="workout-details  ">
+    <div key={workout._id} className="workout-details ">
       <h4>{workout.title}</h4>
 
       <p>

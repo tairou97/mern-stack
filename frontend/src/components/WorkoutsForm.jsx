@@ -21,32 +21,40 @@ const WorkoutsForm = () => {
       );
 
       dispatch({ type: "CREATE_WORKOUTS", payload: res.data });
+      setTitle("");
+      setLoad("");
+      setReps("");
     } catch (error) {
       console.log(error);
-
-      console.log("Error");
+      setError("Error occurred while adding workout.");
     }
   };
 
   return (
-    <div>
-      <form className="create" onSubmit={handleSubmit}>
-        <h3>Add a New</h3>
+    <div className="">
+      <form className="create  p-5   " onSubmit={handleSubmit}>
+        <h3 className="font-bold text-center mb-5 text-xl text-emerald-500">
+          Add a New Workout
+        </h3>
         <label htmlFor=""> Excersize Title:</label>
         <input
+          className=""
           type="text"
+          value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder=" Add Title"
         />
         <label htmlFor=""> Load (in kg):</label>
         <input
           type="number"
+          value={load}
           onChange={(e) => setLoad(e.target.value)}
           placeholder=" Add Load"
         />
         <label htmlFor=""> Reps:</label>
         <input
           type="number"
+          value={reps}
           onChange={(e) => setReps(e.target.value)}
           placeholder=" Add Reps"
         />

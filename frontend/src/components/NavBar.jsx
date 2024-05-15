@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -8,6 +8,12 @@ const NavBar = () => {
         <NavLink to="/">
           <h1>Workout Buddy</h1>
         </NavLink>
+        <nav>
+          <div>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+          </div>
+        </nav>
       </div>
     </header>
   );

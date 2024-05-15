@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import userRoutes from "./routes/userRoutes.js";
 import workouts from "./routes/workouts.js";
 import mongoose from "mongoose";
 import cors from "cors";
@@ -7,6 +8,8 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use("/api/workouts", workouts);
+app.use("/api/user", userRoutes);
+
 const PORT = process.env.PORT || 4000;
 
 async function mernData() {
